@@ -2,6 +2,7 @@ package nl.logicshift.openai.chatservice.chat;
 
 import com.theokanning.openai.completion.CompletionResult;
 import com.theokanning.openai.completion.chat.ChatCompletionResult;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -24,17 +25,17 @@ public class ChatController {
     private final ChatCompletionService chatCompletionService;
 
     @PostMapping
-    public @ResponseBody CompletionResult chat(@RequestBody CompletionRequestDto requestDto) {
+    public @ResponseBody CompletionResult chat(@RequestBody @Valid CompletionRequestDto requestDto) {
         log.info("Generating response for  request {}", requestDto.toString());
-        CompletionResult result = this.chatCompletionService.complete(requestDto);
+        var result = this.chatCompletionService.complete(requestDto);
         result.getChoices().forEach(choice -> log.info("Result choice: {}", choice.toString()));
         return result;
     }
 
     @PostMapping("/conversation")
-    public @ResponseBody ChatCompletionResult chatConversation(@RequestBody CompletionRequestDto requestDto) {
+    public @ResponseBody ChatCompletionResult chatConversation(@RequestBody @Valid CompletionRequestDto requestDto) {
         log.info("Generating response for  request {}", requestDto.toString());
-        ChatCompletionResult result = this.chatCompletionService.complete(this.chatCompletionService.toChatRequest(requestDto));
+        var result = this.chatCompletionService.complete(this.chatCompletionService.toChatRequest(requestDto));
         result.getChoices().forEach(choice -> log.info("Result choice: {}", choice.toString()));
         return result;
     }

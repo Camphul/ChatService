@@ -1,5 +1,7 @@
 package nl.logicshift.openai.chatservice.chat;
 
+import jakarta.validation.constraints.NotEmpty;
+
 /**
  * Completion request dto.
  *
@@ -7,5 +9,5 @@ package nl.logicshift.openai.chatservice.chat;
  * @param prompt the text prompt to generate a completion for.
  * @author Camphul
  */
-public record CompletionRequestDto(String model, String prompt) {
+public record CompletionRequestDto(@NotEmpty String model, @NotEmpty String prompt) {
 }
