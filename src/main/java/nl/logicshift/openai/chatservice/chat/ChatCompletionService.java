@@ -7,6 +7,11 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service for generating completions.
+ *
+ * @author Camphul
+ */
 @Slf4j
 @Service
 @AllArgsConstructor
@@ -17,6 +22,7 @@ public class ChatCompletionService {
     public CompletionResult complete(CompletionRequestDto requestDto) {
         return complete(toRequest(requestDto));
     }
+
     public CompletionRequest toRequest(CompletionRequestDto requestDto) {
         return CompletionRequest.builder().model(requestDto.model()).prompt(requestDto.prompt()).echo(true).user("testing").n(1).build();
     }

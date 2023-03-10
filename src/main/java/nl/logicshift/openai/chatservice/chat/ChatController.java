@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Controller for chat conversations.
+ *
  * @aythor Camphul
  */
 @Controller
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ChatController {
 
     private final ChatCompletionService chatCompletionService;
+
     @PostMapping
     public @ResponseBody CompletionResult chat(@RequestBody CompletionRequestDto requestDto) {
         log.info("Generating response for  request {}", requestDto.toString());

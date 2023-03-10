@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Scope;
 
 /**
  * Configuration for ChatService
+ *
  * @author Camphul
  */
 @Slf4j
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.Scope;
 public class ChatServiceConfiguration {
     /**
      * OpenAI api token bean. Scoped as singleton.
+     *
      * @return openai api token
      */
     @Bean(name = "openAiApiToken")
@@ -29,6 +31,7 @@ public class ChatServiceConfiguration {
 
     /**
      * OpenAI Service bean. Scoped as SINGLETON
+     *
      * @return openai service bean.
      */
     @Bean(name = "openAiService")
