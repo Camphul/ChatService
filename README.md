@@ -10,7 +10,7 @@ Send a post to `http://localhost:8080/chat` with the json body as follows:
 
 ```json
 {
-    "model": "ada",
+    "model": "davinci",
     "prompt": "Somebody once told me the world is gonna roll me"
 }
 ```

@@ -24,7 +24,7 @@ public class ChatCompletionService {
     }
 
     public CompletionRequest toRequest(CompletionRequestDto requestDto) {
-        return CompletionRequest.builder().model(requestDto.model()).prompt(requestDto.prompt()).echo(true).user("testing").n(1).build();
+        return CompletionRequest.builder().maxTokens(70).model(requestDto.model()).prompt(requestDto.prompt()).echo(true).user("testing").n(1).build();
     }
 
     public CompletionResult complete(CompletionRequest completionRequest) {
