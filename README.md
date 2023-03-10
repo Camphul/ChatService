@@ -15,6 +15,15 @@ Send a post to `http://localhost:8080/chat` with the json body as follows:
 }
 ```
 
+To use the chatgpt-3.5 turbo model post to `http://localhost:8080/chat/conversation` with the body:
+
+```json
+{
+    "model": "gpt-3.5-turbo",
+    "prompt": "Only give me the answer. What is 8+8?"
+}
+```
+
 ## OpenAIService bean
 
 The `ChatServiceConfiguration` Spring configuration created a singleton scoped bean of the `OpenAiService` class. This can be used to communicate with the OpenAI API.
