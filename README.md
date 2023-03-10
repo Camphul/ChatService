@@ -27,3 +27,7 @@ To use the chatgpt-3.5 turbo model post to `http://localhost:8080/chat/conversat
 ## OpenAIService bean
 
 The `ChatServiceConfiguration` Spring configuration created a singleton scoped bean of the `OpenAiService` class. This can be used to communicate with the OpenAI API.
+
+## Postman collection
+
+A postman collection can be found in [ChatService.postman_collection.json](ChatService.postman_collection.json)
