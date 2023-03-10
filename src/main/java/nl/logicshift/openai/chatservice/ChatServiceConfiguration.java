@@ -17,6 +17,9 @@ import org.springframework.context.annotation.Scope;
 @Slf4j
 @Configuration
 public class ChatServiceConfiguration {
+
+    public static final String OPENAI_API_TOKEN_ENV = "OPENAI_API_TOKEN";
+
     /**
      * OpenAI api token bean. Scoped as singleton.
      *
@@ -26,7 +29,7 @@ public class ChatServiceConfiguration {
     @ConditionalOnMissingBean(name = "openAiApiToken")
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
     public String openAiApiToken() {
-        return System.getenv("OPENAI_API_TOKEN");
+        return System.getenv(OPENAI_API_TOKEN_ENV);
     }
 
     /**
