@@ -29,7 +29,7 @@ public class ChatCompletionService {
     }
 
     public CompletionRequest toRequest(CompletionRequestDto requestDto) {
-        return CompletionRequest.builder().maxTokens(70).model(requestDto.model()).prompt(requestDto.prompt()).echo(true).user("testing").n(1).build();
+        return CompletionRequest.builder().maxTokens(1000).model(requestDto.model()).prompt(requestDto.prompt()).echo(true).user("testing").n(1).build();
     }
 
     public CompletionResult complete(CompletionRequest completionRequest) {
@@ -43,6 +43,6 @@ public class ChatCompletionService {
     }
 
     public ChatCompletionRequest toChatRequest(CompletionRequestDto requestDto) {
-        return ChatCompletionRequest.builder().model(requestDto.model()).n(1).maxTokens(100).user("assistant").messages(List.of(new ChatMessage("user", requestDto.prompt()))).build();
+        return ChatCompletionRequest.builder().model(requestDto.model()).n(1).maxTokens(1000).user("assistant").messages(List.of(new ChatMessage("user", requestDto.prompt()))).build();
     }
 }
